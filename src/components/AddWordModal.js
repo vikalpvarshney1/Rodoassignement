@@ -8,7 +8,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withSnackbar } from "notistack";
-import {handleAddWord} from "../Redux/action"
+import { handleAddWord } from "../Redux/action"
 
 
 class AddWordModal extends Component {
@@ -29,7 +29,7 @@ class AddWordModal extends Component {
     this.props
       .handleAddWord(this.state.input)
       .then((res) => {
-      
+
         this.props.enqueueSnackbar(`${this.state.input} added Successfully please add new word `, {
           variant: "success",
           autoHideDuration: 3000,
@@ -56,7 +56,12 @@ class AddWordModal extends Component {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title" color="tert">Add To Dictionary</DialogTitle>
+        <DialogTitle
+          id="form-dialog-title"
+          color="tert"
+        >
+          Add To Dictionary
+        </DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -72,7 +77,10 @@ class AddWordModal extends Component {
           <Button color="secondary">
             Cancel
           </Button>
-          <Button onClick={this.handleAddBtn.bind(this)} color="primary">
+          <Button
+            onClick={this.handleAddBtn.bind(this)}
+            color="primary"
+          >
             {this.state.loading ? <CircularProgress size={30} /> : "Add"}
           </Button>
         </DialogActions>
